@@ -12,7 +12,10 @@ export const getEvents = async (req, res) => {
         query.category = aux._id
     }
     try {
-        const events = await Event.find( query )
+        const events = await Event.find( query ).populate( {
+            path: 'category',
+            select : 'category description -_id'
+        } )
         res.status(200).json({ status:200, success:true, response: events })
     } catch (error) {
         res.status(500).json({ message: error })
@@ -24,9 +27,12 @@ export const getEvent = async (req, res) => {
     // obtener un evento
     try {
         
-        const event = await Event.findById( req.params.id )
+        const event = await Event.findById( req.params.id ).populate( {
+            path: 'category',
+            select : 'category description -_id'
+        } )
 
-        res.json( event )
+        res.status(200).json({ status:200, success:true, response: event })
 
     } catch (error) {
         res.status(500).json({ message: error })
