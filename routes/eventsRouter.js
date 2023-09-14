@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getEvents, getEvent, createEvent, createEvents } from '../controllers/eventsControllers.js'
+import { getEvents, getEvent, createEvent } from '../controllers/eventsControllers.js'
 import { createEventValidator } from "../middlewares/validator/createEventValidator.js";
 import passport from "../middlewares/passport.js";
 const eventRouter = Router()
@@ -9,6 +9,5 @@ eventRouter.post( "/",passport.authenticate( 'jwt', {session: false} ), createEv
 
 
 eventRouter.get( "/:id", getEvent)
-/* eventRouter.post( "/all", createEvents) */
 
 export default eventRouter
