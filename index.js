@@ -14,4 +14,4 @@ app.use(logger)
 app.get("/", (_, response) => { response.send('Amazing Events API') })
 app.use("/api/", indexRouter)
 
-app.listen(process.env.PORT, () => console.log('Servidor escuchando en el puerto ' + process.env.PORT))
+app.listen(process.env.PORT, () => console.log('Server listening on port ' + process.env.PORT))
