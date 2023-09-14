@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getEvents, getEvent, createEvent, createEvents } from '../controllers/eventsControllers.js'
-import { createEventValidator } from "../middlewares/createEventValidator.js";
+import { createEventValidator } from "../middlewares/validator/createEventValidator.js";
 import passport from "../middlewares/passport.js";
 const eventRouter = Router()
 
