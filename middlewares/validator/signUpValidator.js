@@ -13,7 +13,7 @@ export const signUpValidator = (req, res, next) =>{
     const validate = schema.validate( req.body, {abortEarly : false} )
     
     if( validate.error ){
-        return res.json( {success:false, errors : validate.error.details } )
+        return res.status(409).json( { errors : validate.error.details } )
     }
     
     next()
