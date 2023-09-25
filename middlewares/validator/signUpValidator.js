@@ -3,10 +3,10 @@ import joi from 'joi'
 export const signUpValidator = (req, res, next) =>{
 
     const schema = joi.object( {
-        name: joi.string().required().min(3).max(25).pattern(new RegExp('^[a-zA-Z]{3,25}$')),
+        name: joi.string().required().min(3).max(25),
         image: joi.string().required().uri(),
         email: joi.string().required().email(),
-        password: joi.string().required().min(8).max(16).pattern(new RegExp('^[a-zA-Z0-9]{8,16}$')),
+        password: joi.string().required().min(8).max(32),
         country: joi.string().min(3).max(20)
     })
     
